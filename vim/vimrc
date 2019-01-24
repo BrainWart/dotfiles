@@ -1,0 +1,66 @@
+filetype plugin on
+
+set backspace=indent,eol,start
+
+set mousehide
+set mouse=a
+
+syntax on
+set hlsearch
+set incsearch
+
+set splitright
+
+if has('gui_running')
+	" :help feature-list
+	if has('gui_gtk2')
+		set guifont+=Input\ Semi-Condensed\ 10
+	else
+		set guifont=Input:h10:cANSI
+	endif
+
+	" Remove icons and menu bar
+	set guioptions-=m
+	set guioptions-=T
+endif
+
+if &term == "xterm-kitty"
+    set termguicolors
+endif
+
+set background=dark
+color molokai
+
+set relativenumber
+set number
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" Stop preview pane from opening
+set completeopt-=preview
+
+nnoremap cp :cprev
+nnoremap cn :cnext
+nnoremap co :copen
+nnoremap cq :cclose
+
+" netrw settings
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_dirhistmax=0
+
+" ALE settings
+let g:ale_set_loclist=0
+let g:ale_set_quickfix=1
+let g:ale_sign_column_always=1
+let g:ale_lint_on_enter=0
+let g:ale_lint_on_filetype_changed=0
+
+" OmniSharp settings
+let g:OmniSharp_timeout=5
+
+packloadall
+silent! helptags ALL
